@@ -1,0 +1,41 @@
+@import "../font/stylesheet.css";
+
+.bottomTextAnimated {
+  visibility: hidden;
+  opacity: 0;
+  height: 0 !important;
+  transition: 0.3s ease-in-out visibility;
+}
+
+.errorInput {
+  border: 1px solid red !important;
+  box-shadow: none !important;
+
+  &:focus {
+    border: 1px solid red !important;
+    box-shadow: none !important;
+  }
+}
+
+
+.button_orange {
+  height: 50px;
+  padding: 0 36px;
+  gap: 10px;
+  border-radius: 8px;
+  background-color: #F90;
+  color: #FFF;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 1.12px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1024px) {
+  .button_orange {
+    height: 40px;
+    padding: 0 10px;
+  }
+}

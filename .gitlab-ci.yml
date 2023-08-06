@@ -1,0 +1,87 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "dev"
+    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_PIPELINE_SOURCE == "web"
+
+cache:
+  paths:
+    - ./node_modules
+  key: "$CI_COMMIT_REF_NAME"
+
+stages:
+  - dependency
+  - build
+  - deploy
+
+#----------------------------------------
+.default_job:stage:
+  rules: &rules_stage
+    - if: $CI_COMMIT_BRANCH == "master"
+  environment: &environment_stage
+    name: stage
+
+.default_job:development:
+  rules: &rules_development
+    - if: $CI_COMMIT_BRANCH == "dev"
+  environment: &environment_development
+    name: development
+
+#----------------------------------------
+.nodejs_template: &nodejs_template
+  tags:
+    - shell
+    - nodejs
+  before_script:
+    - npm set progress=false
+
+#----------------------------------------
+dependency:
+  stage: dependency
+  <<: *nodejs_template
+  script:
+    - npm cache clean --force
+    - npm install --force
+
+#----------------------------------------
+.build_template: &build_template
+  stage: build
+  <<: *nodejs_template
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist
+    expire_in: 10 minutes
+
+build:stage:
+  <<: *build_template
+  rules: *rules_stage
+  environment: *environment_stage
+
+build:development:
+  <<: *build_template
+  rules: *rules_development
+  environment: *environment_development
+
+#----------------------------------------
+.deploy_template: &deploy_template
+  stage: deploy
+  <<: *nodejs_template
+  script:
+    - "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY"
+    - "docker build -t $CI_REGISTRY/$CI_PROJECT_PATH:${CI_COMMIT_REF_NAME}-${CI_PIPELINE_IID} \
+     -f dockerfile ."
+    - "docker push $CI_REGISTRY/$CI_PROJECT_PATH:${CI_COMMIT_REF_NAME}-${CI_PIPELINE_IID}"
+    - "docker stack deploy --with-registry-auth -c docker-stack.yml \
+     ${CI_PROJECT_NAME}-${CI_ENVIRONMENT_NAME}"
+
+deploy:stage:
+  <<: *deploy_template
+  rules: *rules_stage
+  environment: *environment_stage
+
+deploy:development:
+  <<: *deploy_template
+  rules: *rules_development
+  environment: *environment_development

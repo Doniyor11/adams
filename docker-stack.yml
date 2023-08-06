@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  app:
+    image: $CI_REGISTRY/$CI_PROJECT_PATH:${CI_COMMIT_REF_NAME}-${CI_PIPELINE_IID}
+    networks:
+      - proxy_network
+    ports:
+      - ${SERVER_PORT}:80
+
+networks:
+  proxy_network:
+    external: true

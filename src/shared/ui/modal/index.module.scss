@@ -1,0 +1,75 @@
+
+.contactModalWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(#2C3639, 0.4);
+}
+
+.modalContent {
+  width: 554px;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 576px) {
+  .modalContent {
+    width: 400px;
+    padding: 50px 30px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .modalContent {
+    width: 300px;
+    padding: 20px;
+
+    svg{
+      width: 100px;
+      height: 80px;
+    }
+  }
+}
+
+.modalContentTitle {
+  margin: 0 0 36px 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  text-align: center;
+  color: #2C3639;
+}
+
+@media screen and (max-width: 576px) {
+
+  .modalContentTitle {
+    margin: 0 0 28px 0;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+
+  .modalContentTitle {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+  }
+}
+
+.modalContentBtn {
+  padding: 18px 0;
+  width: 100%;
+}
