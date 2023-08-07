@@ -1,0 +1,44 @@
+.carousel__img {
+  width: 100%;
+  max-width: 900px;
+}
+
+.carousel__list {
+  list-style-type: none;
+  display: flex;
+  justify-content: end;
+}
+
+.carousel__item {
+  margin-top: 110px;
+  position: relative;
+  right: 0;
+}
+
+.carousel__wrap {
+  width: 100%;
+  max-width: 468px;
+  top: 5%;
+  right: 100%;
+  position: absolute;
+}
+
+.carousel__title {
+  margin: 10px 0 ;
+  color: #fff;
+  font-family: Mabry Pro;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px; /* 111.111% */
+}
+
+.carousel__desc {
+  margin: 0;
+  color: #fff;
+  font-family: Mabry Pro;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 144.444% */
+}

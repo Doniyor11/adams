@@ -24,6 +24,9 @@ import {ReactComponent as IconSelectArrow} from '@/shared/images/form-select-arr
 
 import cl from "classnames";
 import {Link} from "react-router-dom";
+import { SwiperSlider } from '../libs/swiper';
+
+
 
 export const Home = () => {
     const {t} = useTranslation();
@@ -155,7 +158,7 @@ export const Home = () => {
             {/* Slider */}
             <Container size={'100%'} p={0}>
                 <article className={styles.slider}>
-
+               <SwiperSlider/>
                 </article>
             </Container>
             <Container size={'1440px'}>
