@@ -51,7 +51,7 @@ export const Home = () => {
             </Container>
             <Container size={'1440px'}>
                 {/* services */}
-                <article className={styles.services}>
+                <article id='prev-page' className={styles.services}>
                     <div className={styles.servicesTop}>
                         <div className={cl(styles.servicesTopBoxes, styles.topBoxes)}>
                             <SvgIcon Component={Icon1}/>
@@ -162,7 +162,7 @@ export const Home = () => {
             </Container>
             <Container size={'1440px'}>
                 {/* Info */}
-                <article className={styles.info}>
+                <article id='next-page' className={styles.info}>
                     <Text className={styles.infoTitle}>Кроссплатформенность</Text>
                     <SvgIcon Component={InfoImg}/>
                     <div className={styles.infoSocialWrapper}>
