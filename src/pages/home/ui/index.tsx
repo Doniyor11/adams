@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Checkbox, Container, Input, List, Select, Text, ThemeIcon} from '@mantine/core';
-import { useId } from '@mantine/hooks';
-import { IMaskInput } from 'react-imask';
+import {useId} from '@mantine/hooks';
+import {IMaskInput} from 'react-imask';
 import {useTranslation} from 'react-i18next';
 import styles from './index.module.scss';
 import Header from "@/widgets/layout/ui/header";
@@ -24,8 +24,7 @@ import {ReactComponent as IconSelectArrow} from '@/shared/images/form-select-arr
 
 import cl from "classnames";
 import {Link} from "react-router-dom";
-import { SwiperSlider } from '../libs/swiper';
-
+import {SwiperSlider} from '../libs/swiper';
 
 
 export const Home = () => {
@@ -158,7 +157,7 @@ export const Home = () => {
             {/* Slider */}
             <Container size={'100%'} p={0}>
                 <article className={styles.slider}>
-               <SwiperSlider/>
+                    <SwiperSlider/>
                 </article>
             </Container>
             <Container size={'1440px'}>
@@ -223,10 +222,10 @@ export const Home = () => {
                 {/* Contact */}
                 <article className={styles.contact}>
                     <div className={styles.contactForm}>
-                       <div className={styles.contactFormHeader}>
-                           <SvgIcon Component={IconListLogo} className={styles.contactFormIcon}/>
-                           <Text className={styles.contactFormTitle}>Получите демо-доступ</Text>
-                       </div>
+                        <div className={styles.contactFormHeader}>
+                            <SvgIcon Component={IconListLogo} className={styles.contactFormIcon}/>
+                            <Text className={styles.contactFormTitle}>Получите демо-доступ</Text>
+                        </div>
                         <Input className={styles.contactFormInput} placeholder={'Фамилия, имя и отчество'}/>
                         <Input className={styles.contactFormInput} placeholder={'Название компании или ИНН'}/>
                         <Input.Wrapper id={id} required maw={320} mx="auto" className={styles.contactFormInputPhone}>
@@ -255,7 +254,8 @@ export const Home = () => {
                             className={styles.contactFormCheckbox}
                             label="Согласен на обработку моих персональных данных"
                         />
-                        <Button className={cl(styles.contactFormBtn, 'button_orange')} fullWidth>Получить демо-доступ</Button>
+                        <Button className={cl(styles.contactFormBtn, 'button_orange')} fullWidth>Получить
+                            демо-доступ</Button>
                     </div>
                 </article>
             </Container>
