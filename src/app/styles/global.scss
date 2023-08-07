@@ -39,3 +39,12 @@
     padding: 0 10px;
   }
 }
+
+.swiper-wrapper {
+  transition: transform .25s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  color: #000000 !important;
+  padding: 5px;
+}
